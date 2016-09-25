@@ -1,0 +1,38 @@
+<apex:page controller="MBA_FrameworkClass">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"/>
+<script>
+$( document ).ready(function() {
+    $( "th" ).remove( "th" );
+});
+</script>
+
+
+    <apex:form >
+       <apex:pageBlock title="Framework" id="Account_list">
+            
+         
+        <apex:pageBlockTable value="{! Accounts }" var="acts"> 
+            <!-- Account List -->
+            <apex:column >
+                <apex:outputLink value="/{!acts.id}">{!acts.name}</apex:outputLink>
+            </apex:column> 
+            
+             <apex:column >
+             
+                 <apex:pageBlockTable value="{! Accounts }" var="acts"> 
+                   <!-- Account List -->
+                   <apex:column >
+                     <apex:outputLink value="/{!acts.id}">{!acts.name}</apex:outputLink>
+                   </apex:column>
+                   </apex:pageBlockTable>
+            
+            </apex:column> 
+            
+        </apex:pageBlockTable>
+        
+         
+        
+
+       </apex:pageBlock>
+    </apex:form>
+</apex:page>
